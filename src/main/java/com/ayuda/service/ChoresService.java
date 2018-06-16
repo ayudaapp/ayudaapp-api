@@ -1,8 +1,12 @@
 package com.ayuda.service;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 
 import javax.sql.DataSource;
 
@@ -14,8 +18,8 @@ import org.springframework.boot.actuate.metrics.GaugeService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -24,6 +28,7 @@ import com.ayuda.application.ServiceProperties;
 import com.ayuda.dao.jpa.ChoresRepository;
 import com.ayuda.dao.mapper.ChoreMapper;
 import com.ayuda.rest.domain.Chore;
+import com.ayuda.rest.domain.ChoreCategory;
 
 
 /*
@@ -53,10 +58,12 @@ public class ChoresService {
 
     public Chore createChore(Chore chore) {
                
-        System.out.println("Price:"+chore.getPrice());
+        System.out.println("===========Price:"+chore.getPrice());
     	JdbcTemplate insert = new JdbcTemplate(getDataSource());        
-        insert.update("INSERT INTO CHORES (CUSTID, DESCRIPTION, CONSENT, CHORESTATUS, CHORETYPE, CHOREPRICE, CHOREDATE, CHORETIME) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-                new Object[] { chore.getChoreCreator(), chore.getDescription(), chore.getConsent(), 1 , chore.getType(), chore.getPrice(), getDate(chore.getDate()), chore.getTime()});
+       /* insert.update("INSERT INTO CHORES (CUSTID, DESCRIPTION, CONSENT, CHORESTATUS, CHORETYPE, CHOREPRICE, CHOREDATE) VALUES (?, ?, ?, ?, ?, ?, ?)",
+                new Object[] { chore.getChoreCreator(), chore.getDescription(), chore.getConsent(), 1 , chore.getType(), chore.getPrice(), chore.getDate()});*/
+    	 insert.update("INSERT INTO CHORES (CUSTID, DESCRIPTION, CONSENT, CHORESTATUS, CHORETYPE, CHOREPRICE) VALUES (?, ?, ?, ?, ?, ?)",
+                 new Object[] { chore.getChoreCreator(), chore.getDescription(), chore.getConsent(), 1 , chore.getType(), chore.getPrice()});
             
     	return chore;
     }
@@ -119,8 +126,8 @@ public class ChoresService {
     public int acceptChore(Chore chore) {
         
    	 JdbcTemplate updateTemplate = new JdbcTemplate(getDataSource()); 
-   	 String sqlUpdate = "UPDATE CHORES SET  CHRHLPR=?, STATUS=? WHERE ID=?";      
-   	 int rows = updateTemplate.update(sqlUpdate, new Object[] {  chore.getDescription(), getDate(chore.getDate()), chore.getTime() , chore.getPrice(), chore.getId()});
+   	 String sqlUpdate = "UPDATE CHORES SET  CHOREHLPR=?, CHORESTATUS=? WHERE ID=?";      
+   	 int rows = updateTemplate.update(sqlUpdate, new Object[] {  chore.getChoreHeler(), chore.getStatus(), chore.getId()});
         return rows;
    }
     
@@ -140,10 +147,32 @@ public class ChoresService {
     	return chore;
     }
     
+    public ChoreCategory[] getChoreCategories() {
+    	
+    	JdbcTemplate selectTemplate = new JdbcTemplate(getDataSource());    	
+    	String selectQuery = "SELECT CHORECAT, CHORECATDES FROM CHORECATEGORIES ORDER BY SORTORDER";  
+    	
+    	   	
+    	List<ChoreCategory> choreCategoriesList = selectTemplate.query(selectQuery,new RowMapper<ChoreCategory>(){  
+    	    @Override  
+    	    public ChoreCategory mapRow(ResultSet rs, int rownumber) throws SQLException {  
+    	    	ChoreCategory choreCategory=new ChoreCategory();  
+    	    	choreCategory.setChoreCategoryId(rs.getString("CHORECAT"));
+    	    	choreCategory.setChoreCategoryDes(rs.getString("CHORECATDES"));  
+    	        
+    	        return choreCategory;  
+    	    }  
+    	    });  
+    	 
+    	ChoreCategory[] choreCategories = new ChoreCategory[choreCategoriesList.size()];
+    		
+		return choreCategoriesList.toArray(choreCategories);
+	}
     //http://goo.gl/7fxvVf
     public Page<Chore> getAllHotels(Integer page, Integer size) {
         Page pageOfHotels = choresRepository.findAll(new PageRequest(page, size));
         // example of adding to the /metrics
+        
         if (size > 50) {
             counterService.increment("ChoresService.getAll.largePayload");
            
@@ -167,13 +196,17 @@ public class ChoresService {
     	Date date= new Date();
     	
     	try{
-    	SimpleDateFormat formatter = new SimpleDateFormat("DD-MM-YYYY");
+    	SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy", Locale.US);
+    	System.out.println("============strDate:"+strDate);
     	date = formatter.parse(strDate);
+    	System.out.println("============date:"+strDate);
     	}catch(Exception ex){
-    		
+    		ex.printStackTrace();
     	}
     	return date;
     }
+
+	
     
     
 }

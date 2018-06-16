@@ -1,0 +1,477 @@
+{
+	"id": "53d87e0b-31a3-666a-0ee9-be72ea905a89",
+	"name": "ayuda",
+	"description": "",
+	"order": [
+		"52d63474-6906-265e-63d0-8a65f93ab689",
+		"4fdedf37-e9bc-1160-9d31-f6f4889964c9",
+		"8c113190-45a3-a4df-4271-5d4ca4a2be5d",
+		"e346d099-8b52-0b8e-7f13-5f7b547a00db",
+		"4d8fc212-d32a-4399-2bb5-f3d158ef41a1",
+		"308f7499-8361-d6e4-e62b-7a1350ba5fe9",
+		"f5e3a65f-3e9e-54c7-f1f0-c543dab86281",
+		"e0f9af76-c552-5431-3023-788249ebc0d9",
+		"60c0f52f-362f-0244-3dd1-668b266b7b9b",
+		"3e2e4435-da8e-1bba-ac43-3c81696d17d7"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 0,
+	"owner": "2071347",
+	"public": false,
+	"requests": [
+		{
+			"folder": null,
+			"id": "308f7499-8361-d6e4-e62b-7a1350ba5fe9",
+			"name": "Customer-authenticate",
+			"dataMode": "raw",
+			"data": [],
+			"auth": null,
+			"events": null,
+			"rawModeData": "{\r\n  \"password\": \"Krisna1\",\r\n  \"userId\": \"krishnab1\"\r\n}\r\n\r\n\r\n",
+			"descriptionFormat": "html",
+			"description": "",
+			"variables": null,
+			"headers": "Content-Type: application/json\nAccept: application/json\nAuthorization: Basic MTp4eHg=\n",
+			"method": "POST",
+			"pathVariables": {},
+			"url": "http://localhost:8090/ayuda/v1/customer/authenticate",
+			"preRequestScript": null,
+			"tests": null,
+			"currentHelper": null,
+			"helperAttributes": null,
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic MTp4eHg=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariableData": [],
+			"responses": [],
+			"collectionId": "53d87e0b-31a3-666a-0ee9-be72ea905a89"
+		},
+		{
+			"id": "3e2e4435-da8e-1bba-ac43-3c81696d17d7",
+			"headers": "Content-Type: application/json\nAccept: application/json\nAuthorization: Basic MTp4eHg=\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic MTp4eHg=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8090/ayuda/v1/chores/choreCategories",
+			"folder": null,
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1524021541233,
+			"name": "choreCategories-GET",
+			"description": "",
+			"collectionId": "53d87e0b-31a3-666a-0ee9-be72ea905a89",
+			"responses": [],
+			"rawModeData": "{\r\n \"id\": \"1\",\r\n \"choreHeler\": \"2\",\r\n \"status\" : \"2\"\r\n\r\n}\r\n\r\n"
+		},
+		{
+			"id": "4d8fc212-d32a-4399-2bb5-f3d158ef41a1",
+			"headers": "Content-Type: application/json\nAccept: application/json\nAuthorization: Basic MTp4eHg=\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic MTp4eHg=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8090/ayuda/v1/customer",
+			"folder": null,
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1523933070528,
+			"name": "Customer-Post",
+			"description": "",
+			"collectionId": "53d87e0b-31a3-666a-0ee9-be72ea905a89",
+			"responses": [],
+			"rawModeData": "{\r\n  \"communityName\": \"Apple Corss\",\r\n  \"custId\": 0,\r\n  \"dob\": \"2017-10-24\",\r\n  \"email\": \"krishnamurthy.bomma@gmail.com\",\r\n  \"firstName\": \"Krishna\",\r\n  \"lastName\": \"Bomma\",\r\n  \"password\": \"Krisna1\",\r\n  \"phone\": \"43442234343\",\r\n  \"rating\": 5,\r\n  \"totalChores\": \"30\",\r\n  \"userId\": \"krishnab1\",\r\n  \"zipCode\": \"19335\"\r\n}\r\n\r\n\r\n"
+		},
+		{
+			"folder": null,
+			"id": "4fdedf37-e9bc-1160-9d31-f6f4889964c9",
+			"name": "Hotel-Get",
+			"dataMode": "raw",
+			"data": [],
+			"auth": null,
+			"events": null,
+			"rawModeData": "{\r\n\"name\" : \"Beds R Us\",\r\n\"description\" : \"Very basic, small rooms but clean\",\r\n\"city\" : \"Santa Ana\",\r\n\"rating\" : 2\r\n}",
+			"descriptionFormat": "html",
+			"description": "",
+			"variables": null,
+			"headers": "Content-Type: application/json\nAccept: application/json\nAuthorization: Basic MTp4eHg=\n",
+			"method": "GET",
+			"pathVariables": {},
+			"url": "http://localhost:8090/example/v1/hotels?page=0&size=10",
+			"preRequestScript": null,
+			"tests": null,
+			"currentHelper": null,
+			"helperAttributes": null,
+			"queryParams": [
+				{
+					"key": "page",
+					"value": "0",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "size",
+					"value": "10",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic MTp4eHg=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariableData": [],
+			"responses": [],
+			"collectionId": "53d87e0b-31a3-666a-0ee9-be72ea905a89"
+		},
+		{
+			"folder": null,
+			"id": "52d63474-6906-265e-63d0-8a65f93ab689",
+			"name": "Hotel-Put",
+			"dataMode": "raw",
+			"data": [],
+			"auth": null,
+			"events": null,
+			"rawModeData": "{\r\n\"name\" : \"Beds R Us\",\r\n\"description\" : \"Very basic, small rooms but clean\",\r\n\"city\" : \"Santa Ana\",\r\n\"rating\" : 2\r\n}",
+			"descriptionFormat": "html",
+			"description": "",
+			"variables": null,
+			"headers": "Content-Type: application/json\nAccept: application/json\nAuthorization: Basic MTp4eHg=\n",
+			"method": "PUT",
+			"pathVariables": {},
+			"url": "http://localhost:8090/example/v1/hotels",
+			"preRequestScript": null,
+			"tests": null,
+			"currentHelper": null,
+			"helperAttributes": null,
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic MTp4eHg=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariableData": [],
+			"responses": [],
+			"collectionId": "53d87e0b-31a3-666a-0ee9-be72ea905a89"
+		},
+		{
+			"id": "60c0f52f-362f-0244-3dd1-668b266b7b9b",
+			"headers": "Content-Type: application/json\nAccept: application/json\nAuthorization: Basic MTp4eHg=\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic MTp4eHg=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8090/ayuda/v1/chores/acceptChore",
+			"folder": null,
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1524017636559,
+			"name": "acceptChore-PUT",
+			"description": "",
+			"collectionId": "53d87e0b-31a3-666a-0ee9-be72ea905a89",
+			"responses": [],
+			"rawModeData": "{\r\n \"id\": \"1\",\r\n \"choreHeler\": \"2\",\r\n \"status\" : \"2\"\r\n\r\n}\r\n\r\n"
+		},
+		{
+			"id": "8c113190-45a3-a4df-4271-5d4ca4a2be5d",
+			"headers": "Content-Type: application/json\nAccept: application/json\nAuthorization: Basic MTp4eHg=\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic MTp4eHg=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8090/ayuda/v1/chores",
+			"folder": null,
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1524015750638,
+			"name": "Chore-Post",
+			"description": "",
+			"collectionId": "53d87e0b-31a3-666a-0ee9-be72ea905a89",
+			"responses": [],
+			"rawModeData": "{\r\n \"customerId\": \"1\",\r\n\"description\" : \"chores help6\",\r\n\"choreCreator\" : 1,\r\n\"consent\" : 2,\r\n \"price\": 12,\r\n\"repeat\" : 1,\r\n\"status\" : 1,\r\n\"type\" : 1,\r\n\"date\" : \"01/01/2018\"\r\n}\r\n\r\n"
+		},
+		{
+			"folder": null,
+			"id": "e0f9af76-c552-5431-3023-788249ebc0d9",
+			"name": "Chore-PUT",
+			"dataMode": "raw",
+			"data": [],
+			"auth": null,
+			"events": null,
+			"rawModeData": "{\r\n\"description\" : \"chores helper123\",\r\n\"id\" : 4,\r\n\"choreCreator\" : 1,\r\n\"consent\" : 2,\r\n\"price\" : 12,\r\n\"repeat\" : 1,\r\n\"status\" : 1,\r\n\"time\" : \"2pm\",\r\n\"type\" : 1\r\n}\r\n\r\n",
+			"descriptionFormat": "html",
+			"description": "",
+			"variables": null,
+			"headers": "Content-Type: application/json\nAccept: application/json\nAuthorization: Basic MTp4eHg=\n",
+			"method": "PUT",
+			"pathVariables": {},
+			"url": "http://localhost:8090/ayuda/v1/chores",
+			"preRequestScript": null,
+			"tests": null,
+			"currentHelper": null,
+			"helperAttributes": null,
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic MTp4eHg=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariableData": [],
+			"responses": [],
+			"collectionId": "53d87e0b-31a3-666a-0ee9-be72ea905a89"
+		},
+		{
+			"folder": null,
+			"id": "e346d099-8b52-0b8e-7f13-5f7b547a00db",
+			"name": "Chore-GET",
+			"dataMode": "raw",
+			"data": [],
+			"auth": null,
+			"events": null,
+			"rawModeData": "{\r\n\"description\" : \"chores help\",\r\n\"choreCreator\" : 1,\r\n\"consent\" : 2,\r\n\"price\" : 10,\r\n\"repeat\" : 1,\r\n\"status\" : 1,\r\n\"time\" : \"12 pm\",\r\n\"type\" : 1\r\n}\r\n\r\n",
+			"descriptionFormat": "html",
+			"description": "",
+			"variables": null,
+			"headers": "Content-Type: application/json\nAccept: application/json\nAuthorization: Basic MTp4eHg=\n",
+			"method": "GET",
+			"pathVariables": {},
+			"url": "http://localhost:8090/ayuda/v1/chores/1",
+			"preRequestScript": null,
+			"tests": null,
+			"currentHelper": null,
+			"helperAttributes": null,
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic MTp4eHg=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariableData": [],
+			"responses": [],
+			"collectionId": "53d87e0b-31a3-666a-0ee9-be72ea905a89"
+		},
+		{
+			"folder": null,
+			"id": "f5e3a65f-3e9e-54c7-f1f0-c543dab86281",
+			"name": "Customer-put",
+			"dataMode": "raw",
+			"data": [],
+			"auth": null,
+			"events": null,
+			"rawModeData": "{\r\n  \"communityName\": \"Apple Corss Downingtown\",\r\n  \"custId\": \"8\",\r\n  \"dob\": \"2017-10-24\",\r\n  \"email\": \"b_krishna_murthy@yahoo.com\",\r\n  \"firstName\": \"Krishna\",\r\n  \"lastName\": \"Bomma\",\r\n  \"password\": \"Krishna1\",\r\n  \"phone\": \"43442234343\",\r\n  \"rating\": 5,\r\n  \"totalChores\": \"30\",\r\n   \"zipCode\": \"19335\"\r\n}\r\n\r\n\r\n",
+			"descriptionFormat": "html",
+			"description": "",
+			"variables": null,
+			"headers": "Content-Type: application/json\nAccept: application/json\nAuthorization: Basic MTp4eHg=\n",
+			"method": "PUT",
+			"pathVariables": {},
+			"url": "http://localhost:8090/ayuda/v1/customer",
+			"preRequestScript": null,
+			"tests": null,
+			"currentHelper": null,
+			"helperAttributes": null,
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic MTp4eHg=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariableData": [],
+			"responses": [],
+			"collectionId": "53d87e0b-31a3-666a-0ee9-be72ea905a89"
+		}
+	]
+}

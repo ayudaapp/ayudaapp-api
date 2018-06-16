@@ -40,7 +40,7 @@ database:
       dbhost: localhost
       dbport: 3306
       username: root
-      password: 
+      password: Ayudaapp20!8
 jpa:
     hibernate:
       dialect: org.hibernate.dialect.MySQLInnoDBDialect

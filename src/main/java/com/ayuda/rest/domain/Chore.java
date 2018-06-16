@@ -42,14 +42,15 @@ public class Chore {
     private long id;
 
     @XmlAttribute
-    @Column(name="TYPE")
+    @Column(name="CHORETYPE")
     private String type;
 
     @XmlAttribute
-    @Column(name="DESC")
+    @Column(name="DESCRIPTION")
     private String description;
     
-    @Column(name="date")
+    @Column(name="CHOREDATE")
+    
     @XmlAttribute
     private String date;
     
@@ -77,7 +78,7 @@ public class Chore {
     private String consent;
     
     @XmlAttribute
-    @Column(name="CHRLPR")
+    @Column(name="CHROREHLPR")
     private String choreHeler;
     
        

@@ -1,8 +1,8 @@
 package com.ayuda.api.rest;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +18,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ayuda.rest.domain.Chore;
+import com.ayuda.rest.domain.ChoreCategory;
 import com.ayuda.service.ChoresService;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 
 /*
  * Demonstrates how to set up RESTful API endpoints using Spring MVC
@@ -35,25 +40,29 @@ public class ChoresController extends AbstractRestHandler {
 
 	 
 	 
-    @RequestMapping(value = "", method = RequestMethod.POST,  consumes = {"application/json", "application/xml"},  produces = {"application/json", "application/xml"})
+    @RequestMapping(value = "/createChore", method = RequestMethod.POST,  consumes = {"application/json", "application/xml"},  produces = {"application/json", "application/xml"})
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation(value = "Creates a chore .", notes = "Creates a chore and push the notification to chore helpers.")
     public @ResponseBody Chore createChore(@RequestBody Chore chore,
-                                HttpServletRequest request, HttpServletResponse response) {
-        
+                                HttpServletRequest request, HttpServletResponse response) throws Exception {
+        	
+    	SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+    	simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+    	//chore.setDate(simpleDateFormat.format("2013-09-29T18:46:19Z")); 	
+    	
     	Chore choreCreated = this.choresService.createChore(chore);    	
         return choreCreated;    	
     }
 
     
-   /* @RequestMapping(value = "/acceptChore", method = RequestMethod.PUT, consumes = {"application/json", "application/xml"}, produces = {"application/json", "application/xml"})
+    @RequestMapping(value = "/acceptChore", method = RequestMethod.PUT, consumes = {"application/json", "application/xml"}, produces = {"application/json", "application/xml"})
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation(value = "Accepts a chore .", notes = "Accepts the Chore and sends notification to chore creator.")
     public void acceptChore(@RequestBody Chore chore,  HttpServletRequest request, HttpServletResponse response) {
        
     	int rows = this.choresService.acceptChore(chore);
         response.setHeader("Location", request.getRequestURL().append("/").append(rows).toString());
-    }*/
+    }
     
     @RequestMapping(value = "", method = RequestMethod.PUT, consumes = {"application/json", "application/xml"}, produces = {"application/json", "application/xml"})
     @ResponseStatus(HttpStatus.CREATED)
@@ -65,6 +74,7 @@ public class ChoresController extends AbstractRestHandler {
     }
     
     
+    
     @RequestMapping(value = "/{id}",  method = RequestMethod.GET,  produces = {"application/json", "application/xml"})
     @ResponseStatus(HttpStatus.OK)
     @ApiOperation(value = "Get a single Chore.", notes = "You have to provide a valid chore ID.")
@@ -72,6 +82,16 @@ public class ChoresController extends AbstractRestHandler {
     @ResponseBody Chore getHotel(@ApiParam(value = "The ID of the Chore.", required = true) @PathVariable("id") Long id, HttpServletRequest request, HttpServletResponse response) throws Exception {
         Chore chore = this.choresService.getChore(id);       
         return chore;
+    }
+    
+    
+    @RequestMapping(value = "/choreCategories",  method = RequestMethod.GET,  produces = {"application/json", "application/xml"})
+    @ResponseStatus(HttpStatus.OK)
+    @ApiOperation(value = "Get Chore categories.", notes = "get list of chore categoreis.")
+    public
+    @ResponseBody ChoreCategory[] getChoreCategories( HttpServletRequest request, HttpServletResponse response) throws Exception {
+        ChoreCategory choreCategory[] = this.choresService.getChoreCategories();       
+        return choreCategory;
     }
     
    /* @RequestMapping(value = "", method = RequestMethod.GET, produces = {"application/json", "application/xml"})
